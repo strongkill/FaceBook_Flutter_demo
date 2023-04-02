@@ -4,6 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:storye2/config/palette.dart';
 import 'package:storye2/widgets/widgets.dart';
 import 'package:storye2/data/data.dart';
+import 'package:storye2/models/models.dart';
 
 import '../models/user_model.dart';
 
@@ -44,12 +45,28 @@ class HomeScreen extends StatelessWidget {
               child: CreatePostContainer(
             currentUser: currentUser,
           )),
-           SliverPadding(
+          SliverPadding(
             padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
             sliver: SliverToBoxAdapter(
-              child: Rooms(onlineUsers: onlineUsers,),
+              child: Rooms(
+                onlineUsers: onlineUsers,
+              ),
             ),
-          )
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
+            sliver: SliverToBoxAdapter(
+              child: Stories(
+                currentUser: currentUser,
+                stories: stories,
+              ),
+            ),
+          ),
+          SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+            final Post post = posts[index];
+            return PostContainer(post: post);
+          }, childCount: posts.length))
         ],
       ),
     );
