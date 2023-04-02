@@ -25,13 +25,14 @@ class Rooms extends StatelessWidget {
                 child: _CreateRoomButton(),
               );
             }
-            final User user = onlineUsers[index-1];
+            final User user = onlineUsers[index - 1];
 
-            return Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: ProfileAvatar(
-              imageUrl: user.imageUrl,
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: ProfileAvatar(
+                imageUrl: user.imageUrl,
                 isActive: true,
-            ),
+              ),
             );
           }),
     );
@@ -52,15 +53,17 @@ class _CreateRoomButton extends StatelessWidget {
       child: Row(
         children: [
           ShaderMask(
-              shaderCallback: (rect) =>
-                  Palette.createRoomGradient.createShader(rect),
-              child: const Icon(
-                Icons.video_call,
-                size: 35.0,
-                color: Colors.white,
-              ),
+            shaderCallback: (rect) =>
+                Palette.createRoomGradient.createShader(rect),
+            child: const Icon(
+              Icons.video_call,
+              size: 35.0,
+              color: Colors.white,
+            ),
           ),
-          const SizedBox(width: 4.0,),
+          const SizedBox(
+            width: 4.0,
+          ),
           const Text("Create\nRoom")
         ],
       ),
