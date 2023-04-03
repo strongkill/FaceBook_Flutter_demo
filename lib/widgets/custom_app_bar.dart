@@ -47,24 +47,30 @@ class CustomAppBar extends StatelessWidget {
           SizedBox(
             width: 600.0,
             child: CustomTabBar(
-                icons: icons, selectedIndex: selectedIndex, onTap: onTap),
-          ),
-          Expanded(child: Row(mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            UserCard(user: currentUser),
-            const SizedBox(width: 12.0,),
-            CircleButton(
-                icon: Icons.search,
-                iconSize: 30,
-                onPressed: ()=>debugPrint("search")
-            ),CircleButton(
-                icon: MdiIcons.facebookMessenger,
-                iconSize: 30,
-                onPressed: ()=>debugPrint("Messenger")
+                icons: icons,
+                selectedIndex: selectedIndex,
+                onTap: onTap,
+                isBottomIndicator:true ,
             ),
-          ],
-          )
-          )
+          ),
+          Expanded(
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              UserCard(user: currentUser),
+              const SizedBox(
+                width: 12.0,
+              ),
+              CircleButton(
+                  icon: Icons.search,
+                  iconSize: 30,
+                  onPressed: () => debugPrint("search")),
+              CircleButton(
+                  icon: MdiIcons.facebookMessenger,
+                  iconSize: 30,
+                  onPressed: () => debugPrint("Messenger")),
+            ],
+          ))
         ],
       ),
     );

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:storye2/config/palette.dart';
 import 'package:storye2/models/models.dart';
 import 'package:storye2/widgets/profile_avatar.dart';
+import 'package:storye2/widgets/responsive.dart';
 
 class Stories extends StatelessWidget {
   final User currentUser;
@@ -14,9 +15,12 @@ class Stories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 200.0,
-      color: Colors.white,
+      color: Responsive.isDesktop(context) ? Colors.transparent : Colors.white,
       child: ListView.builder(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8.0),
+        padding: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 8.0,
+        ),
         scrollDirection: Axis.horizontal,
         itemCount: 1 + stories.length,
         itemBuilder: (BuildContext context, int index) {
@@ -73,7 +77,15 @@ class _StoryCard extends StatelessWidget {
           width: 110.0,
           decoration: BoxDecoration(
             gradient: Palette.storyGradient,
-            borderRadius: BorderRadius.circular(120.0),
+            borderRadius: BorderRadius.circular(12.0),
+            boxShadow: Responsive.isDesktop(context)
+                ? const [
+                    BoxShadow(
+                        color: Colors.black26,
+                        offset: Offset(0, 2),
+                        blurRadius: 4.0),
+                  ]
+                : null,
           ),
         ),
         Positioned(

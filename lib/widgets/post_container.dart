@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:storye2/config/palette.dart';
 import 'package:storye2/models/models.dart';
-import 'package:storye2/widgets/profile_avatar.dart';
+import 'package:storye2/widgets/widgets.dart';
 
 class PostContainer extends StatelessWidget {
   final Post post;
@@ -13,40 +13,50 @@ class PostContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        margin: const EdgeInsets.symmetric(vertical: 5.0),
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        color: Colors.white,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  _PostHeader(post: post),
-                  const SizedBox(
-                    height: 4.0,
+    final bool isDesktop = Responsive.isDesktop(context);
+    return Card(
+        margin: EdgeInsets.symmetric(
+          vertical: 5.0,
+          horizontal: isDesktop ? 5.0 : 0.0,
+        ),
+        elevation: isDesktop ? 1.0 : 0.0,
+        shape: isDesktop
+            ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0))
+            : null,
+        child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 5.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            color: Colors.white,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      _PostHeader(post: post),
+                      const SizedBox(
+                        height: 4.0,
+                      ),
+                      Text(post.caption),
+                      post.imageUrl != null
+                          ? const SizedBox.shrink()
+                          : const SizedBox(height: 6.0),
+                    ],
                   ),
-                  Text(post.caption),
-                  post.imageUrl != null
-                      ? const SizedBox.shrink()
-                      : const SizedBox(height: 6.0),
-                ],
-              ),
-            ),
-            post.imageUrl != null
-                ? Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: CachedNetworkImage(imageUrl: post.imageUrl),
-                  )
-                : const SizedBox.shrink(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: _PostStats(post: post),
-            )
-          ],
-        ));
+                ),
+                post.imageUrl != null
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: CachedNetworkImage(imageUrl: post.imageUrl),
+                      )
+                    : const SizedBox.shrink(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: _PostStats(post: post),
+                )
+              ],
+            )));
   }
 }
 
@@ -116,6 +126,7 @@ class _PostStats extends StatelessWidget {
         Row(
           children: [
             Container(
+              padding: const EdgeInsets.all(4.0),
               decoration: const BoxDecoration(
                   color: Palette.facebookBlue, shape: BoxShape.circle),
               child: const Icon(
@@ -128,12 +139,13 @@ class _PostStats extends StatelessWidget {
               width: 4.0,
             ),
             Expanded(
-                child: Text(
-              '${post.likes}',
-              style: const TextStyle(
-                color: Colors.grey,
+              child: Text(
+                '${post.likes}',
+                style: const TextStyle(
+                  color: Colors.grey,
+                ),
               ),
-            )),
+            ),
             const SizedBox(
               width: 4.0,
             ),
@@ -165,7 +177,8 @@ class _PostStats extends StatelessWidget {
               ),
               lable: 'Like',
               onTap: () => debugPrint('Like'),
-            ),_PostButton(
+            ),
+            _PostButton(
               icon: const Icon(
                 MdiIcons.commentOutline,
                 color: Colors.grey,
@@ -173,7 +186,8 @@ class _PostStats extends StatelessWidget {
               ),
               lable: 'Comment',
               onTap: () => debugPrint('Comment'),
-            ),_PostButton(
+            ),
+            _PostButton(
               icon: const Icon(
                 MdiIcons.shareOutline,
                 color: Colors.grey,
@@ -203,25 +217,26 @@ class _PostButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: Material(
-      color: Colors.white,
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-          height: 25.0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              icon,
-              const SizedBox(
-                width: 4.0,
-              ),
-              Text(lable),
-            ],
+      child: Material(
+        color: Colors.white,
+        child: InkWell(
+          onTap: onTap,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            height: 25.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                icon,
+                const SizedBox(
+                  width: 4.0,
+                ),
+                Text(lable),
+              ],
+            ),
           ),
         ),
       ),
-    ));
+    );
   }
 }
