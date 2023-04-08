@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:storye2/screens/screens.dart';
+import 'package:Facebook_Flutter_demo/screens/screens.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:storye2/config/palette.dart';
+import 'package:Facebook_Flutter_demo/config/palette.dart';
 
 class ProfileAvatar extends StatelessWidget {
   final String imageUrl;

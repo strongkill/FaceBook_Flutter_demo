@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:storye2/config/palette.dart';
-import 'package:storye2/widgets/widgets.dart';
+import 'package:Facebook_Flutter_demo/config/palette.dart';
+import 'package:Facebook_Flutter_demo/widgets/widgets.dart';
 
 import '../models/models.dart';
 

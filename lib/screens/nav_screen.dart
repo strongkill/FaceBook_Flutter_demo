@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:storye2/data/data.dart';
-import 'package:storye2/screens/home_screen.dart';
+import 'package:Facebook_Flutter_demo/data/data.dart';
+import 'package:Facebook_Flutter_demo/screens/home_screen.dart';
 
 import '../widgets/widgets.dart';
 

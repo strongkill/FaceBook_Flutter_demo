@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:storye2/config/palette.dart';
-import 'package:storye2/models/models.dart';
-import 'package:storye2/widgets/widgets.dart';
+import 'package:Facebook_Flutter_demo/config/palette.dart';
+import 'package:Facebook_Flutter_demo/models/models.dart';
+import 'package:Facebook_Flutter_demo/widgets/widgets.dart';
 
 class PostContainer extends StatelessWidget {
   final Post post;

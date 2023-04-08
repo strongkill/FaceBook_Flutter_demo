@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tcgoidc.storye2">
+    package="com.tcgoidc.Facebook_Flutter_demo">
    <application
-        android:label="storye2"
+        android:label="Facebook_Flutter_demo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

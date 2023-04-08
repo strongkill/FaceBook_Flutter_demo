@@ -1,4 +1,4 @@
-import 'package:storye2/models/models.dart';
+import 'package:Facebook_Flutter_demo/models/models.dart';
 
 class Story {
   final User user;

@@ -1,11 +1,11 @@
 {
-    "name": "storye2",
-    "short_name": "storye2",
+    "name": "Facebook_Flutter_demo",
+    "short_name": "Facebook_Flutter_demo",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "storye2 Flutter project.",
+    "description": "Facebook_Flutter_demo Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:storye2/widgets/profile_avatar.dart';
-import 'package:storye2/widgets/responsive.dart';
+import 'package:Facebook_Flutter_demo/widgets/profile_avatar.dart';
+import 'package:Facebook_Flutter_demo/widgets/responsive.dart';
 
 import '../models/user_model.dart';
 
